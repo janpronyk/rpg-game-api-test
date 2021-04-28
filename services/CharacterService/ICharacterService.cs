@@ -7,7 +7,7 @@ namespace rpg_game.services.CharacterService
 {
     public interface ICharacterService
     {
-        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters();
+        Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int userId);
 
         Task<ServiceResponse<GetCharacterDto>> GetCharacterById(int id);
 

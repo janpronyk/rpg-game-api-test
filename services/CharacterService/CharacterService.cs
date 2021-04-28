@@ -61,13 +61,16 @@ namespace rpg_game.services.CharacterService
             return serviceResponse;
         }
 
-        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters()
+        public async Task<ServiceResponse<List<GetCharacterDto>>> GetAllCharacters(int userId)
         {
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
 
-            var query = await _context.Characters.ToListAsync();
+            var query = await _context.Characters
+                .Where(c => c.User.Id == userId )
+                .ToListAsync();
 
             serviceResponse.Data = query.Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
+            serviceResponse.Message = userId.ToString();
             
             return serviceResponse;
         }

@@ -17,6 +17,7 @@ using Microsoft.OpenApi.Models;
 using rpg_game.Data;
 using rpg_game.services.CharacterService;
 using Swashbuckle.AspNetCore.Filters;
+using Microsoft.AspNetCore.Http;
 
 namespace rpg_game
 {
@@ -64,7 +65,8 @@ namespace rpg_game
                         ValidateIssuer = false,
                         ValidateAudience = false
                     };
-                });
+            });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

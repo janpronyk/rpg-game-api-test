@@ -29,7 +29,7 @@ namespace rpg_game.Controllers
             int id = int.Parse(User.Claims
                 .FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier).Value);
 
-            return Ok(await _characterService.GetAllCharacters(id));
+            return Ok(await _characterService.GetAllCharacters());
         }
 
         [HttpGet("get-one/:{id}")]

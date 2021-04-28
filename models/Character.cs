@@ -12,5 +12,7 @@ namespace rpg_game.models
         public int Intelligence { get; set; } = 10;
 
         public RpgClass Class { get; set; } = RpgClass.Rogue;
+
+        public User User { get; set; }
     }
 }

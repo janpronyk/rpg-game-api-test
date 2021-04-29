@@ -18,6 +18,7 @@ using rpg_game.Data;
 using rpg_game.services.CharacterService;
 using Swashbuckle.AspNetCore.Filters;
 using Microsoft.AspNetCore.Http;
+using rpg_game.services.WeaponService;
 
 namespace rpg_game
 {
@@ -52,6 +53,7 @@ namespace rpg_game
 
             services.AddAutoMapper(typeof(Startup));
             services.AddScoped<ICharacterService, CharacterService>();
+            services.AddScoped<IWeaponService, WeaponService>();
             services.AddScoped<IAuthRepository, AuthRepository>();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>

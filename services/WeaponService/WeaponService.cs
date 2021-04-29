@@ -30,11 +30,11 @@ namespace rpg_game.services.WeaponService
             var response = new ServiceResponse<GetCharacterDto>();
             try
             {
-                var character = await _context.Characters.FirstOrDefault(c => c.Id == newWeapon.CharacterId);
+                var character = await _context.Users.FirstOrDefault();
 
-                    if(character == null)
-                    {
-                        response.Success = false;
+                if (character == null)
+                {
+                    response.Success = false;
                         response.Message = "Character not found";
                         return response;
                     }

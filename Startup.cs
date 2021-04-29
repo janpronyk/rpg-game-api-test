@@ -34,7 +34,7 @@ namespace rpg_game
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DataContext>(options => 
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultDockerConnection"))
             );
             services.AddControllers();
             services.AddSwaggerGen(c =>

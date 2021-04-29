@@ -30,7 +30,7 @@ namespace rpg_game.services.WeaponService
             var response = new ServiceResponse<GetCharacterDto>();
             try
             {
-                var character = await _context.Users.FirstOrDefault();
+                var character = _context.Users.FirstOrDefault(c => c.Id == newWeapon.CharacterId);
 
                 if (character == null)
                 {
